@@ -1,189 +1,159 @@
 # SoundWave
 
-## 1. Visão Geral
-O SoundWave é um aplicativo de streaming de música inovador que coloca a experiência do usuário em primeiro plano, oferecendo uma plataforma onde a descoberta de novas músicas, a criação de playlists personalizadas e a conexão com outros amantes da música acontecem de forma intuitiva e envolvente.
+1. Visão Geral
+O Módulo Web do App de Música permite que usuários acessem, ouçam e gerenciem músicas diretamente pelo navegador. Ele se conecta ao backend de streaming e à base de dados de músicas, playlists e perfis de usuário. Este módulo integra-se com o ecossistema do app, que também inclui clientes mobile e APIs.
 
-## 2. Pré-requisitos
-**Plataforma do App:**
-Plataforma Principal: Android e iOS (cross-platform ou nativo)
+2. Pré-requisitos
+Software e Ferramentas Necessárias:
 
-Cross-Platform (opcional): Usar um framework que permita o desenvolvimento para ambas as plataformas ao mesmo tempo (Android e iOS).
+Node.js (>= 18.x)
 
-2. Arquitetura do App:
-Arquitetura: Microservices para a parte de backend, com uso de APIs RESTful para comunicação entre o app e os servidores.
+npm ou Yarn
 
-Banco de Dados: Banco de dados relacional e não relacional. Exemplo: MySQL para dados estruturados (usuários, playlists, etc.) e MongoDB para dados não estruturados (logs, comportamento de usuário).
+Docker e Docker Compose (opcional para ambiente de homologação)
 
-3. Frontend (Aplicativo Móvel)
-Para Android:
-- Linguagem: Kotlin (preferido sobre Java por ser mais moderno, conciso e mais seguro)
+Git
 
-- Versão recomendada: Kotlin 1.5+.
+Versões Mínimas Recomendadas:
 
-### Framework:
+Node.js 18.12.1
 
-- Jetpack Compose para interface moderna e reativa.
+npm 9.0.0
 
-- Android SDK (Atualização mais recente).
+Docker 24.x (se usado)
 
-**Para iOS:**
-- Linguagem: Swift (melhor performance e segurança do que Objective-C)
+Acesso e Permissões Necessárias:
 
-- Versão recomendada: Swift 5.5+.
+Permissão de leitura/escrita no repositório do módulo
 
-### Framework:
+Acesso ao servidor de staging ou produção via SSH
 
-- SwiftUI para desenvolvimento de interfaces reativas e modernas.
+Permissão para editar variáveis de ambiente no serviço de hosting (Vercel, Netlify, AWS, etc.)
 
-- UIKit (para funcionalidades legadas ou mais complexas, se necessário).
+3. Especificações Técnicas
+Arquitetura:
+Arquitetura client-server com SPA (Single Page Application) em React, conectando-se à API REST e ao serviço de streaming via WebSocket.
 
-- Para Cross-Platform (Alternativa):
+Tecnologias:
 
-### Framework:
+Linguagens: JavaScript (ES6+), HTML5, CSS3
 
-- Flutter (Google): Para criar apps nativos para iOS e Android com uma base de código única.
+Banco de dados: MongoDB (usado via API Backend)
 
-- React Native (Facebook): Baseado em JavaScript, também permite um desenvolvimento cross-platform eficiente.
+Bibliotecas e Frameworks:
 
-### Versões:
+React 18
 
-- Flutter: v3.0+
+Redux Toolkit
 
-- React Native: 0.68+
+React Router DOM
 
-4. Backend (Servidor)
-   
-### Linguagem:
+Axios
 
-- Node.js (JavaScript/TypeScript): Popular para backend devido à sua escalabilidade e rapidez com APIs.
+Styled Components
 
-- Express.js para facilitar a construção de APIs RESTful.
+WebSocket para streaming de música em tempo real
 
- -Alternativa: Python (Django/Flask) ou Java (Spring Boot), se você preferir outras stacks.
+Configurações:
 
-**Banco de Dados:**
+Variáveis de Ambiente:
 
-Relacional: PostgreSQL ou MySQL para dados estruturados (usuários, playlists, etc.).
+ini
+Copiar
+Editar
+REACT_APP_API_URL=https://api.appmusica.com
+REACT_APP_STREAM_SERVER=wss://stream.appmusica.com
+REACT_APP_GOOGLE_ANALYTICS_ID=UA-XXXXXXX-X
+Parâmetros de Conexão:
 
-Não Relacional: MongoDB para dados não estruturados, como logs ou recomendações de músicas.
+HTTPS habilitado
 
-Serviços de Armazenamento de Música:
+CORS configurado para domínio do app
 
-Para o armazenamento e entrega de arquivos de música, você pode usar:
+4. Procedimento Padrão de Registro de Implantação
+Registrar data e horário do deploy
 
-Amazon S3 ou Google Cloud Storage para o armazenamento de faixas e álbuns.
+Identificar nome e função do responsável (Ex: DevOps, Frontend Dev)
 
-CDN (Content Delivery Network): Cloudflare ou AWS CloudFront para garantir o carregamento rápido e eficiente de conteúdo de áudio.
+Especificar o servidor/máquina alvo (ex: web01.prod.appmusica.com)
 
-Serviços de Streaming:
+Informar a versão do artefato (ex: v1.3.0)
 
-FFmpeg para processamento de áudio, como transcodificação e otimização de faixas.
+Adicionar comentários relevantes (ex: "Deploy com nova tela de playlists públicas")
 
-HLS (HTTP Live Streaming) ou DASH para streaming adaptativo de música em diferentes qualidades de rede.
+5. Checklist de Implantação
+ Planejamento concluído
 
-5. Integrações de APIs de Música:
-Spotify API: Para integração com o Spotify e permitir a reprodução e descoberta de músicas.
+ Ambiente preparado e testado
 
-Apple Music API: Para integrar com o Apple Music.
+ Código construído e artefato gerado
 
-YouTube API: Para streaming de vídeos musicais ou integração com videoclipes.
+ Deploy executado com sucesso
 
-6. Autenticação e Autorizações:
-OAuth 2.0 para autenticação com redes sociais e contas de terceiros.
+ Testes de validação realizados
 
-JWT (JSON Web Tokens) para autenticação segura de usuários.
+ Logs revisados e sem erros críticos
 
-7. Desenvolvimento de Funcionalidades Específicas:
-Sistema de Recomendação de Música:
+6. Validação e Testes
+Testes Funcionais:
 
-Machine Learning: Utilização de bibliotecas como TensorFlow ou PyTorch para recomendação personalizada com base nos hábitos do usuário.
+Login de usuário
 
-Algoritmos de Filtragem Colaborativa ou Sistemas de Recomendação Baseados em Conteúdo.
+Reprodução de música
 
-Notificações Push:
+Criação/edição de playlists
 
-Firebase Cloud Messaging (FCM) para notificações em tempo real (novos lançamentos, shows ao vivo, etc.).
+Busca por artistas/músicas
 
-Modo Offline:
+Testes de Integração:
 
-Utilizar armazenamento local no dispositivo para cache de músicas (SQLite ou Room Database em Android, Core Data em iOS).
+Comunicação com API de usuários
 
-8. Infraestrutura e DevOps:
-Servidores:
+Conexão WebSocket com servidor de streaming
 
-AWS (Amazon Web Services) ou Google Cloud Platform (GCP) para hospedagem e escalabilidade.
+Sincronização de playlists e favoritos
 
-Docker para containerização de microservices.
+Testes de Carga:
 
-CI/CD (Integração Contínua / Entrega Contínua):
+Simular 500 conexões simultâneas ao player
 
-Jenkins ou GitLab CI para automação de testes e deploys.
+Monitorar latência e estabilidade durante picos
 
-Fastlane para automação de builds e deployments para Google Play e App Store.
+7. Avaliação e Feedback
+Problemas Encontrados:
 
-Monitoramento e Logs:
+[Exemplo] Latência alta na reprodução de áudio na primeira conexão
 
-Prometheus ou Grafana para monitoramento do backend.
+[Exemplo] Falha de CORS após deploy na Vercel
 
-Sentry para rastrear erros no app.
+Soluções Adotadas:
 
-Google Analytics para análise de comportamento de usuários.
+Ajuste no balanceador de carga
 
-9. Testes:
-Frontend:
+Reconfiguração dos headers na API
 
-Espresso (Android) ou XCTest (iOS) para testes de interface e interação.
+Sugestões para Melhorias Futuras:
 
-JUnit e Mockito para testes unitários em Android.
+Automatizar rollback em caso de erro
 
-Backend:
+Implementar monitoramento via Grafana
 
-Mocha/Chai ou Jest para testes de APIs no backend (Node.js).
+8. Anexos
+Documentação Técnica:
+Guia de APIs REST
+Manual do Usuário Final
 
-Postman para testes manuais de endpoints API.
+Scripts de Configuração:
 
-10. Segurança:
-Criptografia de Dados: Para proteger a privacidade dos usuários.
+deploy.sh para CI/CD
 
-SSL/TLS para criptografia de comunicação entre cliente e servidor.
+env.template com variáveis padrão
 
-Hashing de senhas com Bcrypt ou Argon2.
+Modelos de Relatórios:
 
-Autorização de APIs: Usar OAuth 2.0 para integrar com Spotify, Apple Music, etc., de forma segura.
+Template de relatório de deploy (relatorio_deploy_template.md)
 
-## 3. Especificações Técnicas
-- **Arquitetura:** [Diagrama ou descrição resumida]
-- **Tecnologias:**
-  - Linguagens:
-  - Banco de dados:
-  - Bibliotecas e frameworks:
-- **Configurações:**
-  - Variáveis de ambiente
-  - Parâmetros de conexão
-
-## 4. Procedimento Padrão de Registro de Implantação
-1. Registro de data e horário
-2. Nome e função do responsável pela implantação
-3. Máquina ou servidor alvo
-4. Versão do artefato implantado
-5. Comentários e observações
-
-## 5. Checklist de Implantação
-- [ ] Planejamento concluído
-- [ ] Ambiente preparado
-- [ ] Deploy executado
-- [ ] Testes de validação realizados
-- [ ] Logs revisados
-
-## 6. Validação e Testes
-Descreva os testes que devem ser realizados após o deploy, como:
-- Testes de carga
-- Testes funcionais
-- Testes de integração
-
-## 7. Avaliação e Feedback
-- Espaço para registrar problemas e soluções adotadas
-- Sugestões de melhoria para futuras implantações
+Planilha de testes de validação (validação_funcional.xlsx)
 
 ## 8. Anexos
 - Links para documentos adicionais
