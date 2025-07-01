@@ -33,33 +33,35 @@ Para Android:
 
 ### Framework:
 
-SwiftUI para desenvolvimento de interfaces reativas e modernas.
+- SwiftUI para desenvolvimento de interfaces reativas e modernas.
 
-UIKit (para funcionalidades legadas ou mais complexas, se necessário).
+- UIKit (para funcionalidades legadas ou mais complexas, se necessário).
 
-Para Cross-Platform (Alternativa):
-Framework:
+- Para Cross-Platform (Alternativa):
 
-Flutter (Google): Para criar apps nativos para iOS e Android com uma base de código única.
+### Framework:
 
-React Native (Facebook): Baseado em JavaScript, também permite um desenvolvimento cross-platform eficiente.
+- Flutter (Google): Para criar apps nativos para iOS e Android com uma base de código única.
 
-Versões:
+- React Native (Facebook): Baseado em JavaScript, também permite um desenvolvimento cross-platform eficiente.
 
-Flutter: v3.0+
+### Versões:
 
-React Native: 0.68+
+- Flutter: v3.0+
+
+- React Native: 0.68+
 
 4. Backend (Servidor)
-Linguagem:
+   
+### Linguagem:
 
-Node.js (JavaScript/TypeScript): Popular para backend devido à sua escalabilidade e rapidez com APIs.
+- Node.js (JavaScript/TypeScript): Popular para backend devido à sua escalabilidade e rapidez com APIs.
 
-Express.js para facilitar a construção de APIs RESTful.
+- Express.js para facilitar a construção de APIs RESTful.
 
-Alternativa: Python (Django/Flask) ou Java (Spring Boot), se você preferir outras stacks.
+ -Alternativa: Python (Django/Flask) ou Java (Spring Boot), se você preferir outras stacks.
 
-Banco de Dados:
+**Banco de Dados:**
 
 Relacional: PostgreSQL ou MySQL para dados estruturados (usuários, playlists, etc.).
 
