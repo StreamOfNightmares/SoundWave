@@ -4,7 +4,7 @@
 O SoundWave é um aplicativo de streaming de música inovador que coloca a experiência do usuário em primeiro plano, oferecendo uma plataforma onde a descoberta de novas músicas, a criação de playlists personalizadas e a conexão com outros amantes da música acontecem de forma intuitiva e envolvente.
 
 ## 2. Pré-requisitos
-Plataforma do App:
+**Plataforma do App:**
 Plataforma Principal: Android e iOS (cross-platform ou nativo)
 
 Cross-Platform (opcional): Usar um framework que permita o desenvolvimento para ambas as plataformas ao mesmo tempo (Android e iOS).
@@ -16,22 +16,22 @@ Banco de Dados: Banco de dados relacional e não relacional. Exemplo: MySQL para
 
 3. Frontend (Aplicativo Móvel)
 Para Android:
-Linguagem: Kotlin (preferido sobre Java por ser mais moderno, conciso e mais seguro)
+- Linguagem: Kotlin (preferido sobre Java por ser mais moderno, conciso e mais seguro)
 
 - Versão recomendada: Kotlin 1.5+.
 
 ### Framework:
 
-Jetpack Compose para interface moderna e reativa.
+- Jetpack Compose para interface moderna e reativa.
 
-Android SDK (Atualização mais recente).
+- Android SDK (Atualização mais recente).
 
-Para iOS:
-Linguagem: Swift (melhor performance e segurança do que Objective-C)
+**Para iOS:**
+- Linguagem: Swift (melhor performance e segurança do que Objective-C)
 
-Versão recomendada: Swift 5.5+.
+- Versão recomendada: Swift 5.5+.
 
-Framework:
+### Framework:
 
 SwiftUI para desenvolvimento de interfaces reativas e modernas.
 
